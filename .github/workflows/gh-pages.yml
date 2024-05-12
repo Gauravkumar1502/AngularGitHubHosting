@@ -24,9 +24,9 @@ jobs:
         run: npm run build:prod
 
       - name: Deploy to GitHub Pages
-        uses: JamesIves/github-pages-deploy-action@4
+        uses: JamesIves/github-pages-deploy-action@v4
         with:
-          FOLDER: dist/browser
-          GITHUB_TOKEN: ${{ secrets.GH_TOKEN }}
-          BRANCH: gh-pages
-          CLEAN: true
+          folder: dist/browser
+          token: ${{ secrets.GH_TOKEN }}
+          branch: gh-pages
+          clean: true
