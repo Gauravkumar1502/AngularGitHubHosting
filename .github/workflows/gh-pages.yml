@@ -23,6 +23,12 @@ jobs:
       - name: Build Angular app
         run: npm run build:prod
 
+      # The 404.htmlis a copy of index.html, but before index.html is built. So it doesn't contain the proper script tags to load Angular, links to CSS files, ... I'd say to do a cp dist/browser/index.html dist/browser/404.html after ng build:prod in your GitHub Action
+      # And before calling the pages publish GitHub Action
+
+      - name: Copy index.html to 404.html
+        run: cp dist/browser/index.html dist/browser/404.html
+
       - name: Deploy to GitHub Pages
         uses: JamesIves/github-pages-deploy-action@v4
         with:
